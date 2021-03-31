@@ -19,7 +19,7 @@ namespace SubsidyCalculation
                 OnException?.Invoke(this, null);
                 throw new Exception("Error in ServiceId");
             }
-            else if (volumes.Month <=  tariff.PeriodBegin && volumes.Month >= tariff.PeriodEnd)
+            else if (volumes.Month <=  tariff.PeriodBegin || volumes.Month >= tariff.PeriodEnd)
             {
                 OnException?.Invoke(this, null);
                 throw new Exception("Error in Mounth");
