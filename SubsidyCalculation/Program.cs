@@ -8,6 +8,7 @@ namespace SubsidyCalculation
         {
             SubsidyCalc subsidyCalc = new SubsidyCalc();
             subsidyCalc.OnNotify += displayMessage;
+            subsidyCalc.OnException += displayException;
             Charge charge = subsidyCalc.CalculateSubsidy(new Volume()
             {
                 Value = 10,
@@ -28,6 +29,11 @@ namespace SubsidyCalculation
         static void displayMessage(object sender, string message)
         {
             Console.WriteLine(message);
+        }
+
+        static void displayException(object sender, Tuple<string, Exception> tuple)
+        {
+            Console.WriteLine(tuple.Item2.Message);
         }
     }
 }
